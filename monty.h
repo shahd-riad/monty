@@ -58,7 +58,7 @@ ssize_t getstdin(char **lineptr, int file);
 char  *delete_line(char *content);
 void push(stack_t **head, unsigned int num);
 void pall(stack_t **head, unsigned int num);
-void pint(stack_t **head, unsigned int num);
+void fpintf(stack_t **head, unsigned int num);
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
 void free_stack(stack_t *head);
 void pop(stack_t **head, unsigned int num);
