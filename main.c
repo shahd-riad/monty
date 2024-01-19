@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	char *content;
 	FILE *file;
 	size_t size = 0;
-	ssize_t read_line = 1;
+	char *read_line = NULL;
 	stack_t *stack = NULL;
 	unsigned int counter = 0;
 
@@ -27,13 +27,13 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (read_line > 0)
+	while (read_line != NULL)
 	{
 		content = NULL;
-		read_line = getline(&content, &size, file);
+		read_line = fgets(content, size, file);
 		bus.content = content;
 		counter++;
-		if (read_line > 0)
+		if (read_line != NULL)
 		{
 			execute(content, &stack, counter, file);
 		}
